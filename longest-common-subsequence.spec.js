@@ -11,7 +11,7 @@ describe('#longestCommonSubsequnce', () => {
         expect(longestCommonSubsequence(arr1, arr2)).to.deep.eq(expected);
     });
 
-    it.only('case #2', () => {
+    it('case #2', () => {
         const arr1 = ['Dog', 'Ludacious', 'Ludacious', 'Anakin', 'Dog', 'Yam'];
         const arr2 = ['Ludacious', 'Spyro', 'Anakin', 'Spyro', 'Dog', 'Plum', 'Yam'] ;
 
@@ -67,7 +67,7 @@ describe('#longestCommonSubsequenceMemo', () => {
         expect(longestCommonSubsequenceMemo(arr1, arr2)).to.deep.eq(expected);
     });
 
-    it.only('case #2', () => {
+    it('case #2', () => {
         const arr1 = ['Dog', 'Ludacious', 'Ludacious', 'Anakin', 'Dog', 'Yam'];
         const arr2 = ['Ludacious', 'Spyro', 'Anakin', 'Spyro', 'Dog', 'Plum', 'Yam'] ;
 
