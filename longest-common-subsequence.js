@@ -20,7 +20,7 @@ const memoize = (fn, cache) => {
     cache = cache || new Map();
 
     return (...args) => {
-        const hash = args.map(a => a.toString()).join('');
+        const hash = args.join('');
 
         if (cache.has(hash)) {
             return cache.get(hash);
