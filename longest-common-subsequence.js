@@ -1,16 +1,16 @@
-const longestCommonSubsequence = (sequenceA, sequenceB) => traverse(sequenceA, sequenceA.length, 0, sequenceB, sequenceB.length, 0);
+const longestCommonSubsequence = (sequenceA, sequenceB) => traverse(sequenceA, 0, sequenceB, 0);
 
-const traverse = (seqA, seqALen, curentAIndex, seqB, seqBLen, curentBIndex) => {
-    if (seqALen === curentAIndex || seqBLen === curentBIndex) {
+const traverse = (seqA, curentAIndex, seqB, curentBIndex) => {
+    if (seqA.length === curentAIndex || seqB.length === curentBIndex) {
         return [];
     } else if (seqA[curentAIndex] === seqB[curentBIndex]) {
         return [
             seqA[curentAIndex],
-            ...traverse(seqA, seqALen, curentAIndex + 1, seqB, seqBLen, curentBIndex + 1)
+            ...traverse(seqA, curentAIndex + 1, seqB, curentBIndex + 1)
         ];
     } else {
-        const excludeLastOfA = traverse(seqA, seqALen, curentAIndex + 1, seqB, seqBLen, curentBIndex);
-        const excludeLastOfB = traverse(seqA, seqALen, curentAIndex, seqB, seqBLen, curentBIndex + 1);
+        const excludeLastOfA = traverse(seqA, curentAIndex + 1, seqB, curentBIndex);
+        const excludeLastOfB = traverse(seqA, curentAIndex, seqB, curentBIndex + 1);
 
         return excludeLastOfA.length > excludeLastOfB.length ? excludeLastOfA : excludeLastOfB;
     }
